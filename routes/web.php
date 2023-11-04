@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ActivityCommentController;
+use App\Http\Controllers\ActivityManagementController;
+use App\Http\Controllers\CommunityConnectorController;
+use App\Http\Controllers\RegisterCommunityController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +21,22 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+
+Route::post('/connect', [CommunityConnectorController::class, 'connect']);
+Route::post('/disconnect', [CommunityConnectorController::class, 'disconnect']);
+Route::resource('/activities', ActivityManagementController::class);
+Route::post('activity/{activity}/comments', [ActivityCommentController::class, 'store']);
+
+
+require __DIR__.'/auth.php';

@@ -1,0 +1,21 @@
+<?php
+
+namespace App\Contract;
+
+use App\Models\Activity;
+use App\Models\Community;
+
+/**
+ * Pengelolaan Aktifitas dari komunitas 
+ * 
+ */
+interface ActivityInterface 
+{
+    public function getActivities(Community $community): array;
+
+    public function postActivity(Community $community, Activity $activity, array $images = []): bool;
+
+    public function updateActivity(Community $community, Activity $activity, array $data): bool;
+    
+    public function removeActivity(Community $community, Activity $activity): bool;
+}
