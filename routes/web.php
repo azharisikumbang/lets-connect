@@ -22,6 +22,7 @@ Route::get('/', function () {
 // public 
 Route::post('/mendaftar', [RegisterCommunityController::class, 'store']);
 
-Route::post('/connect', [CommunityConnectorController::class, '__invoke']);
+Route::post('/connect', [CommunityConnectorController::class, 'connect']);
+Route::post('/disconnect', [CommunityConnectorController::class, 'disconnect']);
 
 Route::get('/profil', function () { })->name('profil.index');

@@ -21,7 +21,16 @@ class CommunityManagementService implements CommunityInterface
     }
 
     public function disconnect(Community $requestor, Community $target): bool 
-    {}
+    {
+        if ($requestor->id === $target->id) return false;
+        if (
+            ! $requestor->communities()->where("target", $target->id)->exists()
+        ) return false;
+
+        $requestor->communities()->detach($target);
+
+        return true;
+    }
 
     public function acceptConnection(Community $me, Community $target): bool
     {}
