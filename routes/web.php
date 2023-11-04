@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommunityConnectorController;
 use App\Http\Controllers\RegisterCommunityController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,5 +21,7 @@ Route::get('/', function () {
 
 // public 
 Route::post('/mendaftar', [RegisterCommunityController::class, 'store']);
+
+Route::post('/connect', [CommunityConnectorController::class, '__invoke']);
 
 Route::get('/profil', function () { })->name('profil.index');
