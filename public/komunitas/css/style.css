@@ -312,8 +312,8 @@ li {
     margin-right: 20px;
     border-radius: 15px;
     display: inline-block;
-    padding: 8px 60px;
-    background-color: #3498db;
+    padding: 8px 80px;
+    background-color: #2b3f78;
     color: #fff;
     border: none;
 
@@ -322,5 +322,5 @@ li {
     text-align: center;
     text-decoration: none;
     margin-bottom: 10px;
-    border: 2px solid black;
+    border: 2px solid #fff;
 }
