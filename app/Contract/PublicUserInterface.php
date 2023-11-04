@@ -1,5 +1,10 @@
 <?php
 
+namespace App\Contract;
+
+use App\Models\Community;
+use App\Models\User;
+
 /**
  * interaksi dari user publik ke platform
  */

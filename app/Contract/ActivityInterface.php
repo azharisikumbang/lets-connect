@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Contract;
+
 /**
  * Pengelolaan Aktifitas dari komunitas 
  * 

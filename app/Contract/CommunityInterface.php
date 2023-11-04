@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Contract;
+
 /**
  * Dipergunakan untuk melakukan interaksi antar komunitas dengan komunitas lain
  * 
