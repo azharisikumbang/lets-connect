@@ -45,8 +45,8 @@
              
             </div>
             <div class="d-flex justify-content-around">
-                <button type="button" class=" btn-simpan1 ok">Post</button>
-                <button type="button" class=" btn-simpan1 ok">Post</button>
+                <button type="button" class=" btn-simpan1 ok">Terhubung</button>
+                <button type="button" class=" btn-simpan1 ok">Kirimkan Pesan</button>
               </div>
               
           </div>
