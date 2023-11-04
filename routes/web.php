@@ -32,11 +32,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-
+Route::post('/mendaftar', [RegisterCommunityController::class, 'store']);
 Route::post('/connect', [CommunityConnectorController::class, 'connect']);
 Route::post('/disconnect', [CommunityConnectorController::class, 'disconnect']);
 Route::resource('/activities', ActivityManagementController::class);
 Route::post('activity/{activity}/comments', [ActivityCommentController::class, 'store']);
+Route::get('/profil', function () { })->name('profil.index');
 
 
 require __DIR__.'/auth.php';
