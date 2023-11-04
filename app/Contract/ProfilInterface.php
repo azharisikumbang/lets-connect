@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Contract;
+
 /**
  * pengelolaan profil dari komunitas
  */

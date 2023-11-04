@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RegisterCommunityController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// public 
+Route::post('/mendaftar', [RegisterCommunityController::class, 'store']);
+
+Route::get('/profil', function () { })->name('profil.index');

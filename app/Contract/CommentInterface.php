@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Contract;
+
 /**
  * mengirim dan menerima pesan dari sesama komunitas
  */
