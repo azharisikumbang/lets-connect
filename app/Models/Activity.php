@@ -22,4 +22,9 @@ class Activity extends Model
     {
         return $this->belongsTo(Community::class, 'owner');
     }
+
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Comment::class, 'commented_on');
+    }
 }
