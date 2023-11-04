@@ -5,14 +5,14 @@ namespace App\Http\Controllers\komunitas;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ProfileController extends Controller
+class KomunitasPublikController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('pages.profile.index');
+        return view('pages.komunitaspublik.index');
     }
 
     /**
@@ -44,7 +44,7 @@ class ProfileController extends Controller
      */
     public function edit(string $id)
     {
-        return view('pages.profile.edit', ['id' => $id]);
+        //
     }
 
     /**

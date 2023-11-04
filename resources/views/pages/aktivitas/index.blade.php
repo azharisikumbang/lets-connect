@@ -50,7 +50,7 @@
         </div>
         
       </div>
-        <hr>
+      
         <!--* 1.Post *-->
         <div class="card ">  
           <div class="card-header bg-color-radius">
