@@ -32,7 +32,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::post('/mendaftar', [RegisterCommunityController::class, 'store']);
+// community registration
+Route::get('/buat-komunitas', [RegisterCommunityController::class, 'index'])->name('community-registration.index');
+Route::post('/mendaftar', [RegisterCommunityController::class, 'store'])->name('community-registration.store');
+
+
 Route::post('/connect', [CommunityConnectorController::class, 'connect']);
 Route::post('/disconnect', [CommunityConnectorController::class, 'disconnect']);
 Route::resource('/activities', ActivityManagementController::class);
