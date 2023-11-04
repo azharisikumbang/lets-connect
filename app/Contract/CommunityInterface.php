@@ -2,13 +2,16 @@
 
 namespace App\Contract;
 
+use App\Models\Community;
+use App\Models\User;
+
 /**
  * Dipergunakan untuk melakukan interaksi antar komunitas dengan komunitas lain
  * 
  */
 interface CommunityInterface
 {
-    public function connect(Community $from, Community $target): bool;
+    public function connect(Community $requestor, Community $target): bool;
 
     public function disconnect(Community $from, Community $target): bool;
 
