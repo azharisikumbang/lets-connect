@@ -2,10 +2,13 @@
 
 namespace App\Contract;
 
+use App\Models\Activity;
+use App\Models\Community;
+
 /**
  * mengirim dan menerima pesan dari sesama komunitas
  */
-interface MessageInterface
+interface CommentInterface
 {
-    public function sendMessage(Community $sender, Post $currentPost, string $message): bool;
+    public function sendComment(Community $sender, Activity $currentActivity, string $message): bool;
 } 
