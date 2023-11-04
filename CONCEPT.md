@@ -1,6 +1,7 @@
 # LOMBA HACKATHON: LETS CONNECTED
 
 NAMA	: [APP NAME] – LET’S CONNECT
+
 TUJUAN	: “Menjadi jembatan untuk menghubungkan sesama komunitas relevan dalam satu lingkup wilayah.”
 
 ## Latar Belakang Masalah:
@@ -40,8 +41,85 @@ Komunitas dan Pengguna Umum 
 
 ### Spesifikasi
 
-1. Contract
+#### Contract
 
+1. CommunityInterface
+```php
+/**
+ * Dipergunakan untuk melakukan interaksi antar komunitas dengan komunitas lain
+ * 
+ */
+interface CommunityInterface
+{
+    public function connect(Community $from, Community $target): bool;
+
+    public function disconnect(Community $from, Community $target): bool;
+
+    public function acceptConnection(Community $me, Community $target): bool;
+
+    public function rejectConnection(Community $me, Community $target): bool;
+
+    public function addNewMember(Community $community, User $user): bool;
+
+    public function rejectNewMember(Community $community, User $user): bool;
+
+    public function kickMember(Community $community, User $user): bool;
+}
+
+```
+
+2. ActivityInterface
+```php
+/**
+ * Pengelolaan Aktifitas dari komunitas 
+ * 
+ */
+interface ActivityInterface 
+{
+    public function getActivities(Community $community): array;
+
+    public function postActivity(Community $community, Activity $activity): bool;
+
+    public function updateActivity(Community $community, Activity $activity, array $data): bool;
+    
+    public function removeActivity(Community $community, Activity $activity): bool;
+}
+```
+
+3. CommentInterface
+```php
+/**
+ * mengirim dan menerima pesan dari sesama komunitas
+ */
+interface MessageInterface
+{
+    public function sendMessage(Community $sender, Post $currentPost, string $message): bool;
+} 
+```
+
+4. ProfilInterface
+```php
+/**
+ * pengelolaan profil dari komunitas
+ */
+interface ProfilInterface
+{
+    public function getProfilDetail(Community $community): Community;
+}
+```
+
+5. PublicUserInterface
+```php
+/**
+ * interaksi dari user publik ke platform
+ */
+interface PublicUserInterface
+{
+    public function joinToCommunity(User $user, Community $community): bool;
+
+    public function RegisterMyCommunity(User $user, Community $community): bool;
+}
+```
 
 2. Database Diagram
 
