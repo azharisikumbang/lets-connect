@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\komunitas\AktivitasController;
+use App\Http\Controllers\komunitas\ProfilController;
+use App\Http\Controllers\komunitas\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +18,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+
+// akses admin resource
+Route::prefix('komunitas')->group(function () {
+
+    Route::resources([
+        'aktivitas' => AktivitasController::class,
+        'profile' => ProfileController::class,
+
+
+
+    ]);
 });
