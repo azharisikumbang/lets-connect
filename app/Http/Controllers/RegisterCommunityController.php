@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreRegisterCommunityRequest;
 use App\Models\Community;
 use App\Services\RegisterCommunityService;
-use Illuminate\Support\Facades\Auth;
 
 class RegisterCommunityController extends Controller
 {

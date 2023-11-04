@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Contract\PublicUserInterface;
 use App\Models\Community;
 use App\Models\User;
+use Illuminate\Contracts\Auth\Authenticatable;
 
 class RegisterCommunityService implements PublicUserInterface
 {
@@ -13,7 +14,7 @@ class RegisterCommunityService implements PublicUserInterface
         return true;
     }
 
-    public function RegisterCommunity(User $user, Community $community): bool
+    public function RegisterCommunity(User|Authenticatable $user, Community $community): bool
     {
         $user->communities()->save($community);
 
