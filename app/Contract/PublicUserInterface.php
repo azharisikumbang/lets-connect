@@ -4,7 +4,7 @@ namespace App\Contract;
 
 use App\Models\Community;
 use App\Models\User;
-use Illuminate\Auth\Authenticatable;
+use Illuminate\Contracts\Auth\Authenticatable;
 
 /**
  * interaksi dari user publik ke platform

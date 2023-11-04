@@ -9,7 +9,7 @@ use Illuminate\Contracts\Auth\Authenticatable;
 
 class RegisterCommunityService implements PublicUserInterface
 {
-    public function joinToCommunity(User $user, Community $community): bool
+    public function joinToCommunity(User|Authenticatable $user, Community $community): bool
     {
         return true;
     }
