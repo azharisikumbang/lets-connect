@@ -10,16 +10,8 @@ use Tests\TestCase;
 class UserRegisterAnCommunityTest extends TestCase
 {
     use RefreshDatabase, WithFaker;
-    /**
-     * A basic feature test example.
-     */
-    public function test_example(): void
-    {
-        $response = $this->get('/');
 
-        $response->assertStatus(200);
-    }
-
+    
     public function test_user_can_register_an_community(): void
     {
         $this->withoutExceptionHandling();
@@ -42,6 +34,26 @@ class UserRegisterAnCommunityTest extends TestCase
         $this->assertDatabaseCount('communities', 1);
         $this->assertDatabaseHas('communities', [
             'managed_by' => $user->id
+        ]);
+    }
+
+    public function test_registration_should_has_error_when_invalid(): void
+    {
+        $fakeCommunity = [
+            'name' => '' // cannot be empty
+        ];
+
+        $user = User::factory()->create();
+
+        $response = $this
+            ->actingAs($user)
+            ->post('/mendaftar', [
+                'community_name' => $fakeCommunity['name']
+            ], ['HTTP_REFERER' => '/mendaftar']);
+
+        $response->assertRedirect('/mendaftar');
+        $response->assertSessionHasErrors([
+            'community_name'
         ]);
     }
 }
