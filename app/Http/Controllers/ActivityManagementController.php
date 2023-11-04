@@ -15,7 +15,7 @@ class ActivityManagementController extends Controller
      */
     public function index()
     {
-        //
+        // return view("");
     }
 
     /**
@@ -23,7 +23,7 @@ class ActivityManagementController extends Controller
      */
     public function create()
     {
-        //
+        return view('activity.create');
     }
 
     /**

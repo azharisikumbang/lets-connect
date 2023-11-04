@@ -1,20 +1,20 @@
 <x-guest-layout>
-<div class="py-12">
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-        <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-            <div class="max-w-xl">
-                <section>
-                    <header>
-                        <h2 class="text-lg font-medium text-gray-900">
-                            {{ __('Masukkan Informasi Komunitas Kamu') }}
-                        </h2>
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
+            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
+                <div class="max-w-xl">
+                    <section>
+                        <header>
+                            <h2 class="text-lg font-medium text-gray-900">
+                                {{ __('Masukkan Informasi Komunitas Kamu') }}
+                            </h2>
 
-                        <p class="mt-1 text-sm text-gray-600">
-                            {{ __("Informasi komunitas yang jelas akan membantu teman-teman komunitas lain dalam mengenali komunitas kamu.") }}
-                        </p>
-                    </header>
+                            <p class="mt-1 text-sm text-gray-600">
+                                {{ __("Informasi komunitas yang jelas akan membantu teman-teman komunitas lain dalam mengenali komunitas kamu.") }}
+                            </p>
+                        </header>
 
-                    <form method="post" action="{{ route('community-registration.store') }}" class="mt-6 space-y-6">
+                        <form method="post" action="{{ route('community-registration.store') }}" class="mt-6 space-y-6">
                             @csrf
                             @method('post')
 

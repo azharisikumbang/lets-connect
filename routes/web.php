@@ -36,11 +36,13 @@ Route::middleware('auth')->group(function () {
 Route::get('/buat-komunitas', [RegisterCommunityController::class, 'index'])->name('community-registration.index');
 Route::post('/mendaftar', [RegisterCommunityController::class, 'store'])->name('community-registration.store');
 
+// activity
+Route::resource('/activities', ActivityManagementController::class);
+Route::post('activity/{activity}/comments', [ActivityCommentController::class, 'store']);
+
 
 Route::post('/connect', [CommunityConnectorController::class, 'connect']);
 Route::post('/disconnect', [CommunityConnectorController::class, 'disconnect']);
-Route::resource('/activities', ActivityManagementController::class);
-Route::post('activity/{activity}/comments', [ActivityCommentController::class, 'store']);
 Route::get('/profil', function () { })->name('profil.index');
 
 

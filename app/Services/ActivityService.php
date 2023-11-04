@@ -10,14 +10,14 @@ use Illuminate\Support\Collection;
 
 class ActivityService implements ActivityInterface
 {
-    public function postActivity(Community $community, Activity $activity, array $images = []): bool
+    public function postActivity(Community $community, Activity $activity, null|array $images = []): bool
     {
-        $storedImages = $this->storeActivityImages($activity, $images);
-        
         $activity = $community->activities()->save($activity);
 
-        $activity->images()->saveMany($storedImages);
-
+        if(is_array($images)) {
+            $storedImages = $this->storeActivityImages($activity, $images);
+            $activity->images()->saveMany($storedImages);
+        }
 
         return true;
     }
