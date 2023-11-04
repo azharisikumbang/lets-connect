@@ -312,7 +312,7 @@ li {
     margin-right: 20px;
     border-radius: 15px;
     display: inline-block;
-    padding: 8px 60px;
+    padding: 8px 180px;
     background-color: #3498db;
     color: #fff;
     border: none;
@@ -322,5 +322,23 @@ li {
     text-align: center;
     text-decoration: none;
     margin-bottom: 10px;
-    border: 2px solid black;
+    border: 2px solid #fff;
+}
+
+/* edit profile */
+
+.btn-simpan2 {
+    border-radius: 15px;
+
+    padding: 8px 80px;
+    background-color: #2b3f78;
+    color: #fff;
+    border: none;
+
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 10px;
+    border: 2px solid #fff;
 }
