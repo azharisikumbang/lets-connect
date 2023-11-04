@@ -8,6 +8,11 @@ use App\Services\RegisterCommunityService;
 
 class RegisterCommunityController extends Controller
 {
+    public function index()
+    {
+        return view("community-registration.index");
+    }
+
     /**
      * Handle the incoming request.
      */
