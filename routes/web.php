@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ActivityCommentController;
 use App\Http\Controllers\ActivityManagementController;
 use App\Http\Controllers\CommunityConnectorController;
@@ -21,12 +22,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// public 
-Route::post('/mendaftar', [RegisterCommunityController::class, 'store']);
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
 
 Route::post('/connect', [CommunityConnectorController::class, 'connect']);
 Route::post('/disconnect', [CommunityConnectorController::class, 'disconnect']);
 Route::resource('/activities', ActivityManagementController::class);
 Route::post('activity/{activity}/comments', [ActivityCommentController::class, 'store']);
 
-Route::get('/profil', function () { })->name('profil.index');
+
+require __DIR__.'/auth.php';
