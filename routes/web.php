@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ActivityManagementController;
 use App\Http\Controllers\CommunityConnectorController;
 use App\Http\Controllers\RegisterCommunityController;
 use Illuminate\Support\Facades\Route;
@@ -24,5 +25,6 @@ Route::post('/mendaftar', [RegisterCommunityController::class, 'store']);
 
 Route::post('/connect', [CommunityConnectorController::class, 'connect']);
 Route::post('/disconnect', [CommunityConnectorController::class, 'disconnect']);
+Route::resource('/activities', ActivityManagementController::class);
 
 Route::get('/profil', function () { })->name('profil.index');
