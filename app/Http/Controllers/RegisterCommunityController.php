@@ -21,13 +21,16 @@ class RegisterCommunityController extends Controller
         $validated = $request->validated();
         $community = Community::make([
             'name' => $validated['community_name'],
+            'description' => $validated['community_description'],
+            'area' => $validated['community_area'],
+            'category' => $validated['community_category']
         ]);
 
         $registrationService = new RegisterCommunityService();
         $registrationService->RegisterCommunity(auth()->user(), $community);
 
         return redirect()
-            ->route("profil.index")
-            ->with("success", "Selamat komunits berhasil didaftarkan.");
+            ->route('activities.create')
+            ->with("success", "Selamat komunitas berhasil didaftarkan.");
     }
 }

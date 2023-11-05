@@ -17,12 +17,14 @@
                     </x-nav-link>
                 </div>
 
+                @if(auth()->user()->community == null)
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('community-registration.index')">
                         {{ __('Daftarkan Komunitas') }}
                     </x-nav-link>
                 </div>
+                @endif
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
@@ -30,6 +32,22 @@
                         {{ __('Sebar Kegiatan') }}
                     </x-nav-link>
                 </div>
+
+                <!-- Navigation Links -->
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('activities.create')">
+                        {{ __('Papan Informasi') }}
+                    </x-nav-link>
+                </div>
+
+                @if(auth()->user()->community)
+                <!-- Navigation Links -->
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('community-profil.show', ['community' => auth()->user()->community ])">
+                        {{ __('Lihat Halaman Komunitas') }}
+                    </x-nav-link>
+                </div>
+                @endif
             </div>
 
             <!-- Settings Dropdown -->

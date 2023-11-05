@@ -27,7 +27,7 @@
 
                                 <div class="w-full">
                                     <x-input-label for="title" :value="__('Judul Kegiatan Kamu')" />
-                                    <x-text-input id="title" name="activity_name" type="text" class="mt-1 block w-full" required autofocus autocomplete="title" />
+                                    <x-text-input id="title" name="title" type="text" class="mt-1 block w-full" required autofocus autocomplete="title" />
                                     <x-input-error class="mt-2" :messages="$errors->get('title')" />
                                 </div>
 
@@ -52,8 +52,8 @@
 
                             <div class="flex items-center mt-12">
                                 <x-primary-button>{{ __('Sebarkan') }}</x-primary-button>
-                                <label for="remember_me" class="inline-flex items-center ml-2">
-                                    <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="publish_to_communities">
+                                <label class="inline-flex items-center ml-2">
+                                    <input type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="publish_to_communities">
                                     <span class="ml-2 text-sm text-gray-600">{{ __('Sebarkan undangan langsung ke komunitas terhubung.') }}</span>
                                 </label>
                             </div>

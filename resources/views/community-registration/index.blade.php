@@ -24,6 +24,25 @@
                                 <x-input-error class="mt-2" :messages="$errors->get('community_name')" />
                             </div>
 
+                            <div>
+                                <x-input-label for="community_description" :value="__('Daerah Operasional Komunitas')" />
+                                <textarea name="community_description" class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full mt-2" rows="5"></textarea>
+                                <x-input-error class="mt-2" :messages="$errors->get('community_description')" />
+                            </div>
+
+
+                            <div>
+                                <x-input-label for="community_name" :value="__('Bidang Komunitas')" />
+                                <x-text-input id="community_name" name="community_category" type="text" class="mt-1 block w-full" required autofocus />
+                                <x-input-error class="mt-2" :messages="$errors->get('community_category')" />
+                            </div>
+
+                            <div>
+                                <x-input-label for="community_name" :value="__('Daerah Operasional Komunitas')" />
+                                <x-text-input id="community_name" name="community_area" type="text" class="mt-1 block w-full" required autofocus />
+                                <x-input-error class="mt-2" :messages="$errors->get('community_area')" />
+                            </div>
+
                             <x-primary-button>{{ __('Buat') }}</x-primary-button>
                         </form>
                     </section>

@@ -35,6 +35,8 @@ class ActivityManagementController extends Controller
 
         $activeUser = auth()->user();
         $activity = Activity::make([
+            'title'=> $validated['title'],
+            'deadline'=> date_create($validated['deadline'])?->format('Y-m-d'),
             'body' => $validated['content']
         ]);
 

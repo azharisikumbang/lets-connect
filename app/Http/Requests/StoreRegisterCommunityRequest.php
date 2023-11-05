@@ -22,7 +22,10 @@ class StoreRegisterCommunityRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'community_name' => 'required|string'
+            'community_name' => 'required|string',
+            'community_area' => 'nullable|string',
+            'community_category' => 'nullable|string',
+            'community_description' => 'nullable|string',
         ];
     }
 }

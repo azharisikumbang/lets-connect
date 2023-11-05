@@ -11,7 +11,7 @@ class Activity extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['body', 'owner'];
+    protected $fillable = ['title', 'body', 'deadline', 'owner'];
 
     public function images(): HasMany
     {
