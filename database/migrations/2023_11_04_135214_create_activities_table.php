@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('activities', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
             $table->text('body');
+            $table->date('deadline')->nullable();
             $table->unsignedBigInteger('owner');
             $table->foreign('owner')->references('id')->on('communities')->onDelete('cascade');
             $table->timestamps();

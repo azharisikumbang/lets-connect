@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('communities', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('category')->nullable();
+            $table->text('description')->nullable();
+            $table->string('area')->nullable();
             $table->unsignedBigInteger('managed_by')->nullable();
             $table->foreign('managed_by')->references('id')->on('users')->nullOnDelete();
             $table->timestamps();

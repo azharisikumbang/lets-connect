@@ -15,7 +15,7 @@ class ActivityManagementController extends Controller
      */
     public function index()
     {
-        //
+        // return view("");
     }
 
     /**
@@ -23,7 +23,7 @@ class ActivityManagementController extends Controller
      */
     public function create()
     {
-        //
+        return view('activity.create');
     }
 
     /**
@@ -35,6 +35,8 @@ class ActivityManagementController extends Controller
 
         $activeUser = auth()->user();
         $activity = Activity::make([
+            'title'=> $validated['title'],
+            'deadline'=> isset($validated['deadline']) ? date_create($validated['deadline'])->format('Y-m-d') : null,
             'body' => $validated['content']
         ]);
 

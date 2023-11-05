@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ActivityCommentController;
 use App\Http\Controllers\ActivityManagementController;
 use App\Http\Controllers\CommunityConnectorController;
 use App\Http\Controllers\RegisterCommunityController;
+use App\Http\Controllers\ShowCommunityPublicPageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,9 +20,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, '__invoke']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -30,17 +30,20 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/buat-komunitas', [RegisterCommunityController::class, 'index'])->name('community-registration.index');
+    Route::post('/mendaftar', [RegisterCommunityController::class, 'store'])->name('community-registration.store');
+
+    // activity
+    Route::resource('/activities', ActivityManagementController::class);
+    Route::post('activity/{activity}/comments', [ActivityCommentController::class, 'store']);
+
+    Route::post('/connect', [CommunityConnectorController::class, 'connect'])->name('community.connect');
+    Route::post('/disconnect', [CommunityConnectorController::class, 'disconnect']);
 });
 
 // community registration
-Route::get('/buat-komunitas', [RegisterCommunityController::class, 'index'])->name('community-registration.index');
-Route::post('/mendaftar', [RegisterCommunityController::class, 'store'])->name('community-registration.store');
-
-
-Route::post('/connect', [CommunityConnectorController::class, 'connect']);
-Route::post('/disconnect', [CommunityConnectorController::class, 'disconnect']);
-Route::resource('/activities', ActivityManagementController::class);
-Route::post('activity/{activity}/comments', [ActivityCommentController::class, 'store']);
+Route::get('/komunitas/{community}', [ShowCommunityPublicPageController::class, '__invoke'])->name('community-profil.show');
 Route::get('/profil', function () { })->name('profil.index');
 
 

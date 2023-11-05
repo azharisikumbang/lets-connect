@@ -21,7 +21,9 @@ class CommunityCommentToActivityTest extends TestCase
         $community = Community::factory()->make();
         $user->community()->save($community);
 
-        $activity = Activity::factory()->create(['owner' => 1]);
+        $activity = Activity::factory()->create([
+            'owner' => 1
+        ]);
 
         $commentBody = $this->faker->paragraph; 
         $request = [

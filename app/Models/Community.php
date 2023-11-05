@@ -14,6 +14,9 @@ class Community extends Model
 
     protected $fillable = [
         'name',
+        'description',
+        'category',
+        'area',
         'managed_by'
     ];
 

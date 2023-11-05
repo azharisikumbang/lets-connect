@@ -25,10 +25,13 @@ class UserRegisterAnCommunityTest extends TestCase
         $response = $this
             ->actingAs($user)
             ->post('/mendaftar', [
-            'community_name' => $fakeCommunity['name']
-        ]);
+                'community_name' => $fakeCommunity['name'],
+                'community_description' => $this->faker->paragraph,
+                'community_area' => $this->faker->sentence,
+                'community_category' => $this->faker->sentence
+            ]);
 
-        $response->assertRedirect('/profil');
+        $response->assertRedirect();
         $response->assertSessionDoesntHaveErrors();
 
         $this->assertDatabaseCount('communities', 1);

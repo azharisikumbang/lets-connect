@@ -26,7 +26,7 @@ class CommunityConnectorController extends Controller
                 ->withErrors('Gagal melakukan permintaan terkoneksi.');
         }
 
-        return redirect()->back()->with('message', 'Berhasil mengirim permintaan terhubung.');
+        return redirect()->route('community-profil.show', ['community' => $target->id]);
     }
 
         /**

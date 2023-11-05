@@ -22,6 +22,8 @@ class StoreActivityRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'title' => 'required',
+            'deadline' => 'nullable|date',
             'content' => 'required',
             'images' => 'nullable',
             'images.*' => 'image' 

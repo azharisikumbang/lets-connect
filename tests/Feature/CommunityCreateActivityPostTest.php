@@ -33,7 +33,9 @@ class CommunityCreateActivityPostTest extends TestCase
         ];
 
         $request = [
+            'title' => $title = $this->faker->title,
             'content' => $content = $this->faker->paragraph,
+            'deadline' => '2023-01-01',
             'images' => $listImages 
         ];
 
@@ -42,6 +44,8 @@ class CommunityCreateActivityPostTest extends TestCase
         // assert in database
         $this->assertDatabaseCount('activities', 1);
         $this->assertDatabaseHas('activities', [
+            'title' => $title,
+            'deadline' => '2023-01-01',
             'body' => $content,
             'owner' => $community->id
         ]);
@@ -72,6 +76,7 @@ class CommunityCreateActivityPostTest extends TestCase
         $this->actingAs($user);
 
         $request = [
+            'title' => $this->faker->title,
             'content' => $content = $this->faker->paragraph,
             'images' => []
         ];
