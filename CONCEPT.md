@@ -115,12 +115,74 @@ interface ProfilInterface
  */
 interface PublicUserInterface
 {
-    public function joinToCommunity(User $user, Community $community): bool;
+    public function joinToCommunity(User|Authenticable $user, Community $community): bool;
 
-    public function RegisterMyCommunity(User $user, Community $community): bool;
+    public function RegisterMyCommunity(User|Authenticable $user, Community $community): bool;
 }
 ```
 
-2. Database Diagram
+#### Database Diagram
 
+![database diagram](./docs/assets/database-diagram.png)
 
+#### Routes Spesification
+
+1. user register new community
+Request:
+```http
+POST /daftar
+
+{
+    "community_name": "required string"
+}
+```
+
+Success Response:
+- Code: 301 (Redirect)
+- Session Bag: `message`
+
+Error Response:
+- Code: 400 (Bad Request)
+- Router: Redirect Back
+- Session Bag: `errors`
+
+2. Connecting a community to others
+Request:
+```http
+POST /connect
+
+{
+    "community_target": "required number"
+}
+```
+
+3. Disconnecting between community
+Request:
+```http
+POST /disconnect
+
+{
+    "community_target": "required number"
+}
+```
+
+4. Community publish an activity
+Request:
+```http
+POST /activities
+
+{
+    "content": "required string",
+    "images": "nullable array"
+}
+```
+
+5. Community comment an activity
+Request: 
+```http
+POST /activities/{activity}/comments
+
+{
+    "comment": "required string"
+}
+```
