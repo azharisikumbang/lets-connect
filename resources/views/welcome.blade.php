@@ -48,27 +48,11 @@
                     </div>
                     <div>
                         <div class="font-semibold underline mb-2 p-2">
-                            agenda komunitas [NAMA KOMUNITAS]:
+                            agenda komunitas terbaru:
                         </div>
                         <div>
-                            <div class="border-b border-grey-400 mb-2 p-2 hover:bg-gray-100 cursor-pointer">
-                                <div class="font-semibold">
-                                    Sharing Session Antar Mahasiswa
-                                </div>
-                                <p>
-                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis soluta...
-                                </p>
-                                <p class="italic text-sm text-gray-400">
-                                    tanggal: 23 juni 2024
-                                </p>
-                            </div>
-                        </div>
-                        <div class="mt-4 p-2">
-                            <a href="" class="underline">Lihat Profil Komunitas</a>
-                        </div>
-                        <!-- <div class="italic">
                             tidak ada agenda.
-                        </div> -->
+                        </div>
                     </div>
                 </div>
             </div>
