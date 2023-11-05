@@ -52,15 +52,17 @@
                         <div>
                             @if($community['activities'])
                                 @foreach($community['activities'] as $activity)
-                                    <div class="border-b border-grey-400 mb-2 p-2 hover:bg-gray-100 cursor-pointer">
-                                        <div class="font-semibold">
-                                            {{ $activity['title'] }}
+                                    <a href="{{ route('activities.show', ['activity' => $activity['id']]) }}">
+                                        <div class="border-b border-grey-400 mb-2 p-2 hover:bg-gray-100 cursor-pointer">
+                                            <div class="font-semibold">
+                                                {{ $activity['title'] }}
+                                            </div>
+                                            <p>{{ substr($activity['body'], 0, 25) }}...</p>
+                                            <p class="italic text-sm text-gray-400">
+                                                tanggal: {{ date('d-m-Y', strtotime($activity['deadline'])) }}
+                                            </p>
                                         </div>
-                                        <p>{{ substr($activity['body'], 0, 25) }}...</p>
-                                        <p class="italic text-sm text-gray-400">
-                                            tanggal: {{ date('d-m-Y', strtotime($activity['deadline'])) }}
-                                        </p>
-                                    </div>
+                                    </a>
                                 @endforeach
                             @else
                                 <div class="italic text-sm p-2">tidak ada agenda.</div>

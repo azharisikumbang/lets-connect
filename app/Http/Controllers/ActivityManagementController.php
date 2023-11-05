@@ -56,9 +56,12 @@ class ActivityManagementController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Activity $activity)
     {
-        //
+        $activity->load('owner');
+        $activity->load('comments.commented_by');
+
+        return view('activity.show', ['activity' => $activity->toArray()]);
     }
 
     /**

@@ -36,7 +36,7 @@ Route::middleware('auth')->group(function () {
 
     // activity
     Route::resource('/activities', ActivityManagementController::class);
-    Route::post('activity/{activity}/comments', [ActivityCommentController::class, 'store']);
+    Route::post('activity/{activity}/comments', [ActivityCommentController::class, 'store'])->name('comments.store');
 
     Route::post('/connect', [CommunityConnectorController::class, 'connect'])->name('community.connect');
     Route::post('/disconnect', [CommunityConnectorController::class, 'disconnect']);
